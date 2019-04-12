@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.second.demosecond.dao.UserDao" >
+    <resultMap id="BaseResultMap" type="com.kk.webvote.entity.User" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="userName" jdbcType="VARCHAR" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, name, address
+    </sql>
+    <select id="selectUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user
+    </select>
+</mapper>
