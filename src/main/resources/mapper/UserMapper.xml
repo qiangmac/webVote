@@ -16,8 +16,9 @@
         from user
     </select>
 
-    <insert id="addUser">
-        insert into t_test_user (id,) values ()
+    <insert id="addUser" parameterType="com.kk.webvote.entity.User">
+        insert into t_test_user (id,name,age,gender)
+        values (#{id,jdbcType=DECIMAL}, #{name, jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, #{gender,jdbcType=VARCHAR})
     </insert>
 
 </mapper>
