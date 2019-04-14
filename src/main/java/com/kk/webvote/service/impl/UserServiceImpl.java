@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,5 +22,13 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public void addUser(User user) {
         userMapper.addUser(user);
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        if (CollectionUtils.isEmpty(userMapper.getAllUser())) {
+            return new ArrayList<User>();
+        }
+        return userMapper.getAllUser();
     }
 }

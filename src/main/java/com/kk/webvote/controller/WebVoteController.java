@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -31,6 +32,8 @@ public class WebVoteController extends BaseController {
         user.setId(3);
         user.setAge("23");
         userService.addUser(user);*/
+        // 批量查询的功能测试可用
+        List<User> allUser = userService.getAllUser();
         model.addAttribute("hello", "你好");
         return "index";
     }

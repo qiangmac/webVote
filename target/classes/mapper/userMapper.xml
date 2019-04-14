@@ -3,7 +3,7 @@
 <mapper namespace="com.kk.webvote.dao.UserMapper" >
     <resultMap id="BaseResultMap" type="com.kk.webvote.entity.User" >
         <id column="ID" property="id" jdbcType="INTEGER" />
-        <result column="NAME" property="userName" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
         <result column="AGE" property="age" jdbcType="VARCHAR" />
         <result column="GENDER" property="gender" jdbcType="VARCHAR" />
     </resultMap>
@@ -20,5 +20,9 @@
         insert into t_test_user (id,name,age,gender)
         values (#{id,jdbcType=DECIMAL}, #{name, jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, #{gender,jdbcType=VARCHAR})
     </insert>
+
+    <select id="getAllUser" resultMap="BaseResultMap">
+        select * from t_test_user
+    </select>
 
 </mapper>
