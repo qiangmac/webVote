@@ -1,2 +1,7 @@
 D:\workspace\webVote\src\main\java\com\kk\webvote\controller\WebVoteController.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\WebvoteApplication.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\entity\User.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\controller\MyWebAppConfigurer.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\dao\UserMapper.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\service\UserService.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\service\impl\UserServiceImpl.java

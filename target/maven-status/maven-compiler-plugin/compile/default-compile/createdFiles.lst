@@ -1,2 +1,6 @@
-com\kk\webvote\controller\WebVoteController.class
+com\kk\webvote\entity\User.class
+com\kk\webvote\service\UserService.class
 com\kk\webvote\WebvoteApplication.class
+com\kk\webvote\controller\WebVoteController.class
+com\kk\webvote\dao\UserMapper.class
+com\kk\webvote\service\impl\UserServiceImpl.class
