@@ -8,7 +8,6 @@ D:\workspace\webVote\src\main\java\com\kk\webvote\service\impl\UserServiceImpl.j
 D:\workspace\webVote\src\main\java\com\kk\webvote\controller\WebVoteController.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\WebvoteApplication.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\entity\User.java
-D:\workspace\webVote\src\main\java\com\kk\webvote\controller\configuer\MyWebAppConfigurer.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\service\impl\VoteServiceImpl.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\controller\configuer\WebConfig.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\entity\Vote.java

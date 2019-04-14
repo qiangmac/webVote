@@ -25,7 +25,6 @@ public class WebVoteController extends BaseController {
     VoteService voteService;
 
     @GetMapping(value = "/user/getUser")
-    // 这里返回值类型为String,则是直接跳转导templates下的页面
     public String getUser(Model model, @RequestBody User user) {
         /*User user = new User();
         user.setName("马强");
