@@ -1,16 +1,17 @@
 package com.kk.webvote.controller;
 
 import com.google.common.collect.Maps;
+import com.kk.webvote.controller.base.BaseController;
 import com.kk.webvote.entity.User;
 import com.kk.webvote.entity.Vote;
 import com.kk.webvote.service.UserService;
 import com.kk.webvote.service.VoteService;
+import com.kk.webvote.util.PageEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -23,19 +24,31 @@ public class WebVoteController extends BaseController {
     @Autowired
     VoteService voteService;
 
-    @RequestMapping(value="/hello")
+    @GetMapping(value = "/user/getUser")
     // 这里返回值类型为String,则是直接跳转导templates下的页面
-    public String hello(Model model) {
+    public String getUser(Model model, @RequestBody User user) {
         /*User user = new User();
         user.setName("马强");
         user.setGender("男");
         user.setId(3);
         user.setAge("23");
         userService.addUser(user);*/
-        // 批量查询的功能测试可用
-        List<User> allUser = userService.getAllUser();
-        model.addAttribute("hello", "你好");
+        // 批量查询的功能测试可用,已实现分页功能
+        /* 前面请求参数中需传查询页数和大小
+        *   {
+	            "pageNum":1,
+	            "pageSize":10
+            }
+        * */
+        List<User> allUser = userService.getAllUser(user);
+        new PageEntity<>(allUser);
         return "index";
+    }
+
+    @RequestMapping(value="/hello")
+    public ModelAndView index(ModelAndView mv) {
+        mv.setViewName("index");
+        return mv;
     }
 
     /**

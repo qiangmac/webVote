@@ -4,7 +4,6 @@ import com.kk.webvote.dao.UserMapper;
 import com.kk.webvote.entity.User;
 import com.kk.webvote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -25,10 +24,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUser() {
-        if (CollectionUtils.isEmpty(userMapper.getAllUser())) {
+    public List<User> getAllUser(User user) {
+        if (CollectionUtils.isEmpty(userMapper.getAllUser(user))) {
             return new ArrayList<User>();
         }
-        return userMapper.getAllUser();
+        return userMapper.getAllUser(user);
     }
 }

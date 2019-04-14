@@ -1,4 +1,4 @@
-package com.kk.webvote.controller;
+package com.kk.webvote.controller.base;
 
 import com.kk.webvote.entity.User;
 import org.springframework.web.context.request.RequestContextHolder;

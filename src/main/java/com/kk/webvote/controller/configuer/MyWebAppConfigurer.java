@@ -1,6 +1,5 @@
-/*
 // java类中配置访问jsp前缀及后缀
-package com.kk.webvote.controller;
+package com.kk.webvote.controller.configuer;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,11 +13,10 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/jsp/");
+        viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
 
 }
-*/

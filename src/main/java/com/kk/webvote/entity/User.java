@@ -1,6 +1,8 @@
 package com.kk.webvote.entity;
 
-public class User {
+import com.kk.webvote.entity.base.BaseEntity;
+
+public class User extends BaseEntity{
     private Integer id;
     private String name;
     private String age;
