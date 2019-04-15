@@ -26,11 +26,10 @@ public class WebVoteController extends BaseController {
 
     @GetMapping(value = "/user/getUser")
     public String getUser(Model model, @RequestBody User user) {
-        /*User user = new User();
-        user.setName("马强");
-        user.setGender("男");
-        user.setId(3);
-        user.setAge("23");
+        /*user.setName("马强强");
+        user.setGender("男男");
+        user.setId(14);
+        user.setAge("233");
         userService.addUser(user);*/
         // 批量查询的功能测试可用,已实现分页功能
         /* 前面请求参数中需传查询页数和大小
@@ -64,15 +63,17 @@ public class WebVoteController extends BaseController {
         * @ResponseBody注解可以将Map自动转为json格式字符串
         * 所以这里将创建投票的结果封装成Map返回给前端
         * 前端处理返回结果:
-        * $.post(url,{
+        * $.post("/vote/addVote",{
         *       id: id,
         *       title: title
         *   },
         *   function(result){
         *       if (result.isSuccess) {
         *           alert(result.message);
+        *           // 业务代码
         *       } else {
         *           alert(result.message);
+        *           // 业务代码
         *       }
         * })
         */

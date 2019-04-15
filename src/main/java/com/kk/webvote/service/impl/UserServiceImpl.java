@@ -11,6 +11,9 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* 提供给外部调用的方法通过接口(Interface)暴露给调用方,这里就是UserService
+* */
 @Service
 public class UserServiceImpl implements UserService {
 
