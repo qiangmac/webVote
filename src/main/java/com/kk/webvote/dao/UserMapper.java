@@ -20,4 +20,6 @@ public interface UserMapper {
 
     public List<User> getAllUser(User user);
 
+    public User validateLoginUser(User user);
+
 }

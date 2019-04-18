@@ -25,4 +25,9 @@
         select * from t_test_user
     </select>
 
+    <select id="validateLoginUser">
+        select * from t_test_user
+        where login_id = #{loginId,jdbcType=VARCHAR} and password = #{password}
+    </select>
+
 </mapper>

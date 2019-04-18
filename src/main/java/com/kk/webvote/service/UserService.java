@@ -12,4 +12,5 @@ public interface UserService {
 
     public List<User> getAllUser(User user);
 
+    User validateLoginUser(String loginId, String password);
 }
