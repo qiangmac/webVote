@@ -1,5 +1,6 @@
 D:\workspace\webVote\src\main\java\com\kk\webvote\util\PageEntity.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\entity\base\BaseEntity.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\controller\configuer\Const\LoginInterceptorConst.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\service\VoteService.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\dao\UserMapper.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\service\UserService.java
@@ -10,5 +11,6 @@ D:\workspace\webVote\src\main\java\com\kk\webvote\WebvoteApplication.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\entity\User.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\service\impl\VoteServiceImpl.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\controller\configuer\WebConfig.java
+D:\workspace\webVote\src\main\java\com\kk\webvote\controller\configuer\interceptor\LoginInterceptor.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\entity\Vote.java
 D:\workspace\webVote\src\main\java\com\kk\webvote\dao\VoteMapper.java

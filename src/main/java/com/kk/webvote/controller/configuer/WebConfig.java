@@ -24,8 +24,8 @@ import java.util.List;
  * @desc
  * @since 2018/8/25 21:45
  */
+/*@EnableWebMvc 注解开启后所有的配置必须在代码中完成*/
 @Configuration
-@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer{
 
     @Autowired
@@ -54,14 +54,14 @@ public class WebConfig implements WebMvcConfigurer{
         converters.add(fastJsonHttpMessageConverter);
     }
 
-    @Bean
+    /*@Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
-    }
+    }*/
 
     // 这里重写父类中的addInterceptors()方法将自定义的拦截器添加进spring容器
     @Override

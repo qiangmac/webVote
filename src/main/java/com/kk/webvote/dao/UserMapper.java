@@ -22,4 +22,5 @@ public interface UserMapper {
 
     public User validateLoginUser(User user);
 
+    public boolean saveUser(User user);
 }

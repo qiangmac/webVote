@@ -3,9 +3,13 @@
 <mapper namespace="com.kk.webvote.dao.UserMapper" >
     <resultMap id="BaseResultMap" type="com.kk.webvote.entity.User" >
         <id column="ID" property="id" jdbcType="INTEGER" />
-        <result column="NAME" property="name" jdbcType="VARCHAR" />
-        <result column="AGE" property="age" jdbcType="VARCHAR" />
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+        <result column="AGE" property="age" jdbcType="DECIMAL" />
         <result column="GENDER" property="gender" jdbcType="VARCHAR" />
+        <result column="LOGIN_ID" property="loginId" jdbcType="VARCHAR"/>
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List" >
         id, name, address
@@ -16,18 +20,32 @@
         from user
     </select>
 
-    <insert id="addUser" parameterType="com.kk.webvote.entity.User">
-        insert into t_test_user (id,name,age,gender)
-        values (#{id,jdbcType=DECIMAL}, #{name, jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, #{gender,jdbcType=VARCHAR})
+    <!-- 添加用户 -->
+    <insert id="saveUser" parameterType="com.kk.webvote.entity.User">
+        <!-- mysql提供设置字段自增功能,不用创建序列 -->
+        <!--<selectKey keyProperty="id" resultType="int" order="BEFORE">  &lt;!&ndash; 给id添加序列 &ndash;&gt;
+            select seq_vote_sys_user.NEXTVAL from dual
+        </selectKey>-->
+        insert into vote_sys_user
+        (id,user_name,age,gender,login_id,password,address,email)
+        values
+        (#{id,jdbcType=DECIMAL}, #{userName, jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, #{gender,jdbcType=VARCHAR},
+        #{loginId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
     </insert>
 
     <select id="getAllUser" resultMap="BaseResultMap">
         select * from t_test_user
     </select>
 
-    <select id="validateLoginUser">
-        select * from t_test_user
-        where login_id = #{loginId,jdbcType=VARCHAR} and password = #{password}
+    <select id="validateLoginUser" parameterType="com.kk.webvote.entity.User" resultMap="BaseResultMap">
+        select * from vote_sys_user
+        where login_id = #{loginId,jdbcType=VARCHAR}
+        <if test="userName != null and userName != ''">
+            and user_name = #{userName,jdbcType=VARCHAR}
+        </if>
+        <if test="password != '' and password != null">
+            and password = #{password,jdbcType=VARCHAR}
+        </if>
     </select>
 
 </mapper>

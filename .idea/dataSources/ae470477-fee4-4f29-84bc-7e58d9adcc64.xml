@@ -918,7 +918,11 @@
     <table id="231" parent="3" name="t_test_user">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="232" parent="231" name="id">
+    <table id="232" parent="3" name="vote_sys_user">
+      <Comment>网络投票系统_用户表</Comment>
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="233" parent="231" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>int(11)|0</DataType>
@@ -926,26 +930,84 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="231" name="name">
+    <column id="234" parent="231" name="name">
       <Position>2</Position>
       <Comment>姓名</Comment>
       <DataType>varchar(20)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="231" name="age">
+    <column id="235" parent="231" name="age">
       <Position>3</Position>
       <Comment>年龄</Comment>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="231" name="gender">
+    <column id="236" parent="231" name="gender">
       <Position>4</Position>
       <Comment>性别</Comment>
       <DataType>varchar(6)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="236" parent="231" name="PRIMARY">
+    <key id="237" parent="231" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="238" parent="232" name="id">
+      <Position>1</Position>
+      <Comment>id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="232" name="user_name">
+      <Position>2</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="232" name="age">
+      <Position>3</Position>
+      <Comment>年龄</Comment>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="232" name="gender">
+      <Position>4</Position>
+      <Comment>性别</Comment>
+      <DataType>varchar(5)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="232" name="login_id">
+      <Position>5</Position>
+      <Comment>loginId</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="232" name="password">
+      <Position>6</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="232" name="address">
+      <Position>7</Position>
+      <Comment>地址</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="232" name="email">
+      <Position>8</Position>
+      <Comment>电子邮箱</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="246" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

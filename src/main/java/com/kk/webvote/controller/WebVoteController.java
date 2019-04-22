@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +25,54 @@ public class WebVoteController extends BaseController {
     UserService userService;
     @Autowired
     VoteService voteService;
+
+    // 前往登录页
+    @RequestMapping(value="/toIndex")
+    public String toIndex() {
+        return "index";
+    }
+
+    // 前往注册页
+    @RequestMapping(value="/toRegister")
+    public String toRegister() {
+        return "register";
+    }
+
+    // 注册用户
+    @PostMapping(value="/user/registerUser")
+    public Object registerUser(Model model, User user) {
+        Map resultMap = Maps.newHashMap();
+        // 需要查找用户是否存在
+        User validataUser = userService.validateLoginUser(user);
+        if (validataUser != null) {
+            resultMap.put("isSuccess", false);
+            resultMap.put("message", "注册失败,用户名/登陆名已被使用");
+            return resultMap;
+        }
+        boolean flag = userService.registerUser(user);
+        if (!flag) {
+            resultMap.put("isSuccess", false);
+            resultMap.put("message", "注册失败");
+            return resultMap;
+        }
+        // 将注册好的用户添加到session会话中
+        HttpSession session = super.getSession();
+        session.setAttribute("currentUser", user);
+        resultMap.put("isSuccess", true);
+        return resultMap;
+    }
+
+    @RequestMapping(value = "/login")
+    public String login(Model model, User user) {
+        User validataUser = userService.validateLoginUser(user);
+        if (validataUser == null) {
+            return "index";
+        }
+        HttpSession session = super.getSession();
+        session.setAttribute("isVisitor", false);
+        session.setAttribute("currentUser", validataUser);
+        return "voteMain";
+    }
 
     @GetMapping(value = "/user/getUser")
     public String getUser(Model model, @RequestBody User user) {
@@ -41,12 +91,6 @@ public class WebVoteController extends BaseController {
         List<User> allUser = userService.getAllUser(user);
         new PageEntity<>(allUser);
         return "index";
-    }
-
-    @RequestMapping(value="/hello")
-    public ModelAndView index(ModelAndView mv) {
-        mv.setViewName("index");
-        return mv;
     }
 
     /**

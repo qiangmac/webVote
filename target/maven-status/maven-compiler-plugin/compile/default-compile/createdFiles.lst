@@ -6,9 +6,11 @@ com\kk\webvote\service\VoteService.class
 com\kk\webvote\controller\base\BaseController.class
 com\kk\webvote\controller\WebVoteController.class
 com\kk\webvote\entity\base\BaseEntity.class
+com\kk\webvote\controller\configuer\interceptor\LoginInterceptor.class
 com\kk\webvote\dao\UserMapper.class
 com\kk\webvote\service\impl\UserServiceImpl.class
 com\kk\webvote\controller\configuer\WebConfig.class
 com\kk\webvote\entity\Vote.class
 com\kk\webvote\service\impl\VoteServiceImpl.class
+com\kk\webvote\controller\configuer\Const\LoginInterceptorConst.class
 com\kk\webvote\dao\VoteMapper.class

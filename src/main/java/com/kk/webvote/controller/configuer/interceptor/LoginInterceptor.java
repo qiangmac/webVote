@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 /**
  * @author maqiang
@@ -31,10 +32,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
         // 获取访问路径
         String path = request.getRequestURI();
-        if (path.matches(LoginInterceptorConst.LOGIN)) {
-            String loginId = (String) request.getAttribute("loginId");
-            String password = (String) request.getAttribute("password");
-            User loginUser = userService.validateLoginUser(loginId, password);
+        /*if (path.matches(LoginInterceptorConst.LOGIN)) {
+            String loginId = (String) request.getParameter("loginId");
+            String password = (String) request.getParameter("password");
+            User validUser = new User();
+            validUser.setLoginId(loginId);
+            validUser.setPassword(password);
+            User loginUser = userService.validateLoginUser(validUser);
             if (loginUser == null) {
                 // 登陆时没有查询到对应的用户, 转发到无用户页面
                 response.sendRedirect(request.getContextPath() + LoginInterceptorConst.NULLUSERPAGE);
@@ -42,8 +46,9 @@ public class LoginInterceptor implements HandlerInterceptor {
             }
             session.setAttribute("currentUser", loginUser);
             session.setAttribute("isVisitor", false);
+            response.sendRedirect(request.getContextPath() + LoginInterceptorConst.VOTE_MAIN);
             return true;
-        }
+        }*/
         // 游客登陆不拦截,设置游客属性
         if (path.matches(LoginInterceptorConst.NO_INTERCEPTOR_PATH)) {
             session.setAttribute("isVisitor", true);

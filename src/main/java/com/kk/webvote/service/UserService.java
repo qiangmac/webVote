@@ -12,5 +12,7 @@ public interface UserService {
 
     public List<User> getAllUser(User user);
 
-    User validateLoginUser(String loginId, String password);
+    User validateLoginUser(User user);
+
+    boolean registerUser(User user);
 }

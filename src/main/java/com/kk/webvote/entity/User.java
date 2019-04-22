@@ -7,9 +7,9 @@ public class User extends BaseEntity{
     // 用户id
     private Integer id;
     // 用户姓名
-    private String name;
+    private String userName;
     // 用户年龄
-    private String age;
+    private Integer age;
     // 用户性别
     private String gender;
     // 用户登陆名
@@ -19,6 +19,8 @@ public class User extends BaseEntity{
     // 用户地址
     private String address;
 
+    private String email;
+
     public Integer getId() {
         return id;
     }
@@ -27,12 +29,20 @@ public class User extends BaseEntity{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getGender() {
@@ -41,14 +51,6 @@ public class User extends BaseEntity{
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
     }
 
     public String getLoginId() {
@@ -75,16 +77,25 @@ public class User extends BaseEntity{
         this.address = address;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
                 ", age='" + age + '\'' +
                 ", gender='" + gender + '\'' +
                 ", loginId='" + loginId + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

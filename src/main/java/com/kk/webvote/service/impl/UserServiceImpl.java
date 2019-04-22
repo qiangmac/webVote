@@ -35,10 +35,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User validateLoginUser (String loginId, String password) {
-        User loginUser = new User();
-        loginUser.setLoginId(loginId);
-        loginUser.setPassword(password);
+    public User validateLoginUser (User loginUser) {
         return userMapper.validateLoginUser(loginUser);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean registerUser(User user) {
+        try {
+            userMapper.saveUser(user);
+            return true;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
